@@ -1,3 +1,4 @@
+import { z } from 'zod'
 import 'dotenv/config'
 import  express  from "express";
 import { PrismaPg } from '@prisma/adapter-pg'
@@ -10,6 +11,12 @@ const prisma = new PrismaClient({
   adapter: new PrismaPg({ connectionString: process.env.DATABASE_URL })
 })
 
+const productSchema = z.object({
+  name: z.string().min(1, "Nome é obrigatório"),
+  description: z.string().optional(),
+  price: z.number().positive("Preço deve ser positivo"),
+  stock_quantity: z.number().int().min(0).default(0)
+})
 
 // Testando o get
 // app.get('/', function (req, res) {
@@ -22,17 +29,17 @@ app.get('/products', async (req, res) => {
 })
 
 app.post( '/products', async (req, res) => {
-    const { name, description, price, stock_quantity} = req.body
+    try {
+        const data = productSchema.parse(req.body)
     
     const product = await prisma.product.create({
-       data: {
-        name: name,
-       description : description,
-       price: price,
-       stock_quantity: stock_quantity
-       }
+       data: data  
     })
     res.json(product)
+    } catch (error) {
+        res.status(400).json({error: error})
+    }
+    
 })
 
 app.listen(3000, () => {
