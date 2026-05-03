@@ -1,11 +1,13 @@
 import { z } from 'zod'
 import 'dotenv/config'
-import  express  from "express";
+import  express  from "express"
 import { PrismaPg } from '@prisma/adapter-pg'
-import { PrismaClient } from "./generated/prisma/client";
+import { PrismaClient } from "./generated/prisma/client"
+import cors from 'cors'
 
 const app = express()
 app.use(express.json())
+app.use(cors())
 
 const prisma = new PrismaClient({
   adapter: new PrismaPg({ connectionString: process.env.DATABASE_URL })
