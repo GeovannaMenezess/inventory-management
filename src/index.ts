@@ -28,6 +28,18 @@ app.get('/products', async (req, res) => {
     res.json(product)
 })
 
+app.get( '/products/:id', async (req, res) => {
+    const productId = req.params.id
+
+    const product = await prisma.product.findFirst ({
+        where: {
+            id: productId
+        }
+    })
+
+    res.json(product)
+})
+
 app.post( '/products', async (req, res) => {
     try {
         const data = productSchema.parse(req.body)
@@ -40,6 +52,18 @@ app.post( '/products', async (req, res) => {
         res.status(400).json({error: error})
     }
     
+})
+
+app.put('/products/:id', async (req, res) => {
+    const {id} = req.params;
+    const { name, description, price, stock_quantity} = req.body
+
+    const product = await prisma.product.update({
+        where: {id: id},
+        data: { name: name, description: description, price: price, stock_quantity: stock_quantity}       
+    })
+
+    res.json(product)
 })
 
 app.listen(3000, () => {
