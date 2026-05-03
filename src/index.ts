@@ -55,15 +55,33 @@ app.post( '/products', async (req, res) => {
 })
 
 app.put('/products/:id', async (req, res) => {
-    const {id} = req.params;
-    const { name, description, price, stock_quantity} = req.body
+    try{
+        const {id} = req.params;
+        const data = productSchema.partial().parse(req.body)
 
-    const product = await prisma.product.update({
-        where: {id: id},
-        data: { name: name, description: description, price: price, stock_quantity: stock_quantity}       
-    })
+        const product = await prisma.product.update({
+            where: {id: id},
+            data: data       
+        })
 
-    res.json(product)
+        res.json(product)
+
+    } catch (error) {
+    res.status(400).json({ error: String(error) })
+    }
+})
+
+app.delete('/products/:id', async (req, res) => {
+    try{
+        const {id} = req.params;
+    
+        const product = await prisma.product.delete({
+            where: {id: id},
+        })
+        res.json(product)
+    } catch (error) {
+        res.status(400).json({ error: String(error) })
+    }
 })
 
 app.listen(3000, () => {
