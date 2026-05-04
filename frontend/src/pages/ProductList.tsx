@@ -5,6 +5,7 @@ function ProductList() {
   const [products, setProducts] = useState([])
   const navigate = useNavigate()
   const location = useLocation()
+  const [search, setSearch] = useState('')  //Buscar produto
 
   function fetchProducts() {
     fetch('http://localhost:3000/products')
@@ -14,9 +15,6 @@ function ProductList() {
    useEffect(() => {
     fetchProducts()
   }, [location])
-    
-  
-
 
   //Deletar Produto
   async function deleteProduct(id: string) {
@@ -33,6 +31,12 @@ function ProductList() {
       <div>
         <button onClick={() => navigate('/adicionar')}>Adicionar</button>
       </div>
+      <input
+       type="text"
+       placeholder= "Buscar Produtos"
+       value={search}
+       onChange={(e) => setSearch(e.target.value)}
+       />
       <table>
         <thead>
           <tr>
@@ -44,7 +48,11 @@ function ProductList() {
           </tr>
         </thead>
         <tbody>
-          {products.map((product: any) => (
+          {products
+          .filter((product: any) =>
+            product.name.toLowerCase().includes(search.toLowerCase())
+        )
+          .map((product: any) => (
             <tr key={product.id}>
               <td>{product.name}</td>
               <td>{product.description}</td>
