@@ -27,6 +27,8 @@ function ProductForm() {
 
   const navigate = useNavigate()
 
+
+  
   async function handleSubmit() {
     
    await fetch(`http://localhost:3000/products/${id}`, {
@@ -44,10 +46,28 @@ function ProductForm() {
     })
     navigate('/')
   }
+//Tentando fazer o botão Adicionar
+  async function handleAdd() {
+    await fetch(`http://localhost:3000/products` , {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name : name,
+        description : description,
+        price : Number (price),
+        stock_quantity : Number (stock_quantity)
+
+      })
+
+    })
+    navigate('/')
+  }
 
  return (
     <div>
-      <h1>Editar Produto</h1>
+      <h1>{id?  'Editar Produto' : 'Adicionar Produto'}</h1>
       <form>
         <input 
           type="text" 
@@ -73,7 +93,7 @@ function ProductForm() {
           value={stock_quantity}
           onChange={(e) => setStock_quantity(e.target.value)}
         />
-        <button type="button" onClick={handleSubmit}>Salvar</button>
+        <button type="button" onClick={ id? handleSubmit : handleAdd}>Salvar</button>
       </form>
     </div>
   )

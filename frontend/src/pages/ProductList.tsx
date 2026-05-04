@@ -15,7 +15,7 @@ function ProductList() {
     fetchProducts()
   }, [location])
     
-  //Adicionar Produto
+  
 
 
   //Deletar Produto
@@ -30,6 +30,9 @@ function ProductList() {
   return (
     <div>
       <h1>Inventário</h1>
+      <div>
+        <button onClick={() => navigate('/adicionar')}>Adicionar</button>
+      </div>
       <table>
         <thead>
           <tr>
@@ -55,6 +58,7 @@ function ProductList() {
           ))}
         </tbody>
       </table>
+      
     </div>
   )
 }
