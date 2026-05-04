@@ -1,13 +1,19 @@
+import { useNavigate, useLocation} from 'react-router-dom'
 import { useState, useEffect } from 'react'
 
 function ProductList() {
   const [products, setProducts] = useState([])
+  const navigate = useNavigate()
+  const location = useLocation()
 
-  useEffect(() => {
+  function fetchProducts() {
     fetch('http://localhost:3000/products')
       .then(res => res.json())
       .then(data => setProducts(data))
-  }, [])
+  }
+   useEffect(() => {
+    fetchProducts()
+  }, [location])
     
   //Adicionar Produto
 
@@ -19,6 +25,7 @@ function ProductList() {
     })
     setProducts(products.filter((p: any) => p.id !== id))
   }
+
 
   return (
     <div>
@@ -41,7 +48,7 @@ function ProductList() {
               <td>{product.price}</td>
               <td>{product.stock_quantity}</td>
               <td>
-                <button>Editar</button>
+                <button onClick={() => navigate(`/editar/${product.id}`)}>Editar</button>
                 <button onClick={() => deleteProduct(product.id)}>Excluir</button>
               </td>
             </tr>
