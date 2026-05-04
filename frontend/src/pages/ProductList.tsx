@@ -8,6 +8,17 @@ function ProductList() {
       .then(res => res.json())
       .then(data => setProducts(data))
   }, [])
+    
+  //Adicionar Produto
+
+
+  //Deletar Produto
+  async function deleteProduct(id: string) {
+    await fetch(`http://localhost:3000/products/${id}`, {
+        method: 'DELETE'
+    })
+    setProducts(products.filter((p: any) => p.id !== id))
+  }
 
   return (
     <div>
@@ -31,7 +42,7 @@ function ProductList() {
               <td>{product.stock_quantity}</td>
               <td>
                 <button>Editar</button>
-                <button>Excluir</button>
+                <button onClick={() => deleteProduct(product.id)}>Excluir</button>
               </td>
             </tr>
           ))}
