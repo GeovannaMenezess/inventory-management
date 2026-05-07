@@ -28,15 +28,18 @@ function ProductList() {
   return (
     <div>
       <h1>Inventário</h1>
-      <div>
-        <button onClick={() => navigate('/adicionar')}>Adicionar</button>
-      </div>
-      <input
+      <div className='buscarProdutos'>
+      <div className='inputContainer'>
+      <i className="fa-solid fa-magnifying-glass icone-lupa"></i>
+      <input className='campoDeBusca'
        type="text"
        placeholder= "Buscar Produtos"
        value={search}
        onChange={(e) => setSearch(e.target.value)}
        />
+       </div>
+       </div>
+       <div className='container'>
       <table>
         <thead>
           <tr>
@@ -44,10 +47,10 @@ function ProductList() {
             <th>Descrição</th>
             <th>Preço</th>
             <th>Quantidade</th>
-            <th></th>
+            <th><button className='botaoAdicionar' onClick={() => navigate('/adicionar')}>+</button></th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className='table'>
           {products
           .filter((product: any) =>
             product.name.toLowerCase().includes(search.toLowerCase())
@@ -59,14 +62,21 @@ function ProductList() {
               <td>{product.price}</td>
               <td>{product.stock_quantity}</td>
               <td>
-                <button onClick={() => navigate(`/editar/${product.id}`)}>Editar</button>
-                <button onClick={() => deleteProduct(product.id)}>Excluir</button>
+                <div style={{display: 'flex', gap: '5px', justifyContent: 'center'}}>
+                <button className='botaoEditar' onClick={() => navigate(`/editar/${product.id}`)}>
+                  <i className="fa-solid fa-pen"></i>
+                </button>
+                
+                <button className='botaoExcluir' onClick={() => deleteProduct(product.id)}>
+                  <i className="fa-solid fa-trash"></i>
+                </button>
+                </div>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
-      
+      </div>
     </div>
   )
 }
