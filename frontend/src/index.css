@@ -2,18 +2,26 @@
 body{
   margin: 0;
   background-color: #e8e8e8;
-  font-family: sans-serif;
+  font-family: "Playfair Display", serif;
   
+}
+
+thead {
+  position: sticky;
+  top: 0;
 }
 
 .container{
   margin:  40px auto;
-  
-  background-color: #b0b8d8;
+  background-color: #d8b0b0;
   width: 80%;
   height: 80%;
   padding: 50px;
   border-radius: 12px;
+  max-height: 400px;
+  overflow-y: scroll;
+  border-radius: 12px;
+  
 }
 
 .inputContainer {
@@ -33,7 +41,7 @@ body{
 
 .buscarProdutos{
   margin:  20px auto;
-  background-color: #b0b8d8;
+  background-color: #d8b0b0;
   width: 50%;
   height: 20px;
   padding: 20px;
@@ -46,13 +54,15 @@ body{
 .campoDeBusca{
   display: block;
   margin: 0 auto;
-  background-color: #ffffff;
+  background-color: #e8e8e8;
   width: 100%;
   height: 10px;
   padding: 10px;
   box-sizing: border-box;
   padding-left: 35px;
   border-radius: 12px;
+  border: none;
+  font-family: "Playfair Display", serif;
 }
 
 table{
@@ -75,7 +85,7 @@ table td{
 }
 
 table th{
-  padding: 7px;
+  padding: 5px;
   width: 5px;
 }
 
@@ -111,6 +121,7 @@ h1{
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 0 auto;
 }
 
 .botaoEditar{
@@ -140,3 +151,77 @@ h1{
   justify-content: center;
 }
 
+.formContainer{
+  background-color: #d8b0b0;
+  margin: auto;
+  width: 50%;
+  height: 50%;
+  padding: 30px 50px 50px 50px;
+  border-radius: 12px;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.inputForm{
+  background-color: #e8e8e8;
+  padding: 7px;
+  text-align: center;
+  border-collapse: separate;
+  border-spacing: 0 8px;
+  margin: 5px;
+  border-radius: 12px;
+  border: none;
+  width: 100%;
+  font-family: "Playfair Display", serif;
+}
+
+.botaoSalvar{
+  background-color: rgb(119, 190, 119);
+  width: 30%;
+  padding: 10px;
+  border-radius: 12px;
+  align-items: center;
+  margin-top: 20px;
+  border: none;
+  display: block;
+  margin: 20px auto 0 auto;
+  font-family: "Playfair Display", serif;
+}
+
+.titulo {
+  margin-top: 0;
+  padding-top: 0;
+  font-family: "Playfair Display", serif;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.colunaBotoes {
+  text-align: center;
+  padding-right: 5px;
+}
+
+.container::-webkit-scrollbar {
+  width: 10px;
+}
+
+.container::-webkit-scrollbar-track {
+  background-color: transparent;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.container::-webkit-scrollbar-thumb {
+  background-color: #bc7676;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-radius: 10px;
+}
+
+.numero {
+  font-family: sans-serif;
+}

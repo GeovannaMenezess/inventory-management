@@ -47,7 +47,9 @@ function ProductList() {
             <th>Descrição</th>
             <th>Preço</th>
             <th>Quantidade</th>
-            <th><button className='botaoAdicionar' onClick={() => navigate('/adicionar')}>+</button></th>
+            <th className='colunaBotoes'>
+              <button className='botaoAdicionar' onClick={() => navigate('/adicionar')}>+</button>
+            </th>
           </tr>
         </thead>
         <tbody className='table'>
@@ -59,8 +61,10 @@ function ProductList() {
             <tr key={product.id}>
               <td>{product.name}</td>
               <td>{product.description}</td>
-              <td>{product.price}</td>
-              <td>{product.stock_quantity}</td>
+              <td className='numero'>
+                {Number(product.price).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+              </td>
+              <td className='numero'>{product.stock_quantity}</td>
               <td>
                 <div style={{display: 'flex', gap: '5px', justifyContent: 'center'}}>
                 <button className='botaoEditar' onClick={() => navigate(`/editar/${product.id}`)}>
