@@ -20,11 +20,6 @@ const productSchema = z.object({
   stock_quantity: z.number().int().min(0).default(0)
 })
 
-// Testando o get
-// app.get('/', function (req, res) {
-//     res.send('servidor funcionando!')
-// })
-
 app.get('/products', async (req, res) => {
     const product = await prisma.product.findMany()
     res.json(product)
