@@ -15,13 +15,10 @@ thead {
   margin:  40px auto;
   background-color: #d8b0b0;
   width: 80%;
-  height: 80%;
-  padding: 50px;
-  border-radius: 12px;
   max-height: 400px;
-  overflow-y: scroll;
   border-radius: 12px;
-  
+  overflow-y: scroll; 
+  scrollbar-gutter: stable both-edges;
 }
 
 .inputContainer {
@@ -47,17 +44,15 @@ thead {
   padding: 20px;
   display: flex;
   align-items: center;
-  flex: 1;
   border-radius: 12px;
 }
 
 .campoDeBusca{
-  display: block;
   margin: 0 auto;
   background-color: #e8e8e8;
   width: 100%;
   height: 10px;
-  padding: 10px;
+  padding: 15px;
   box-sizing: border-box;
   padding-left: 35px;
   border-radius: 12px;
@@ -74,10 +69,7 @@ table{
 
 table tr{
   background-color: #e8e8e8;
-  margin-bottom: 10px;
-  border-spacing: 10px;
   border-radius: 8px;
-  
 }
 
 table td{
@@ -86,7 +78,6 @@ table td{
 
 table th{
   padding: 5px;
-  width: 5px;
 }
 
 table td:first-child {
@@ -135,6 +126,8 @@ h1{
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 2px;
+  
 }
 
 .botaoExcluir{
@@ -147,8 +140,8 @@ h1{
   align-items: center;
   color: white;
   display: flex;
-  align-items: center;
   justify-content: center;
+  border-radius: 2px;
 }
 
 .formContainer{
@@ -158,7 +151,6 @@ h1{
   height: 50%;
   padding: 30px 50px 50px 50px;
   border-radius: 12px;
-  align-items: center;
   margin-top: 50px;
 }
 
@@ -166,8 +158,6 @@ h1{
   background-color: #e8e8e8;
   padding: 7px;
   text-align: center;
-  border-collapse: separate;
-  border-spacing: 0 8px;
   margin: 5px;
   border-radius: 12px;
   border: none;
@@ -180,7 +170,6 @@ h1{
   width: 30%;
   padding: 10px;
   border-radius: 12px;
-  align-items: center;
   margin-top: 20px;
   border: none;
   display: block;
@@ -207,6 +196,7 @@ h1{
 
 .container::-webkit-scrollbar {
   width: 10px;
+  display: block;
 }
 
 .container::-webkit-scrollbar-track {
@@ -217,11 +207,13 @@ h1{
 
 .container::-webkit-scrollbar-thumb {
   background-color: #bc7676;
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
   border-radius: 10px;
 }
 
 .numero {
   font-family: sans-serif;
+}
+
+.container-inner {
+  padding: 20px 50px;
 }

@@ -40,6 +40,7 @@ function ProductList() {
        </div>
        </div>
        <div className='container'>
+        <div className='container-inner'>
       <table>
         <thead>
           <tr>
@@ -80,6 +81,7 @@ function ProductList() {
           ))}
         </tbody>
       </table>
+      </div>
       </div>
     </div>
   )
