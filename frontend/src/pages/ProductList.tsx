@@ -27,7 +27,7 @@ function ProductList() {
 
   return (
     <div>
-      <h1>Inventário</h1>
+      <h1>Gerenciador de Inventário</h1>
       <div className='buscarProdutos'>
       <div className='inputContainer'>
       <i className="fa-solid fa-magnifying-glass icone-lupa"></i>
