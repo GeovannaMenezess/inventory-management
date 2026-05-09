@@ -25,7 +25,7 @@ Aplicação desenvolvida com TypeScript para gestão de um inventário de produt
 - TypeScript
 - React
 - Vite
-- CSS Modules
+- CSS
 
 ## Decisões técnicas
 
@@ -55,7 +55,7 @@ Vite foi utilizado no frontend por oferecer um ambiente de desenvolvimento rápi
 
 ### CSS Modules
 
-CSS Modules foi utilizado para manter os estilos organizados e isolados por componente, evitando conflitos de classes e facilitando a manutenção da interface.
+CSS foi utilizado para manter os estilos organizados e isolados por componente, evitando conflitos de classes e facilitando a manutenção da interface.
 
 A escolha também levou em consideração familiaridade prévia com a tecnologia.
 
