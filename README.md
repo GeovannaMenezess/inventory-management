@@ -10,6 +10,7 @@ Aplicação desenvolvida com TypeScript para gestão de um inventário de produt
 - Exclusão de produtos
 - Busca de produtos
 - Validação de dados
+- Testes automatizados da API
 
 ## Tecnologias utilizadas
 
@@ -20,6 +21,8 @@ Aplicação desenvolvida com TypeScript para gestão de um inventário de produt
 - Prisma
 - Express
 - Zod
+- Jest
+- Supertest
 
 **Frontend:**
 - TypeScript
@@ -59,6 +62,14 @@ CSS foi utilizado para manter os estilos organizados e isolados por componente, 
 
 A escolha também levou em consideração familiaridade prévia com a tecnologia.
 
+### Jest e Supertest
+
+Jest e Supertest foram utilizados para implementar testes automatizados da API.
+
+O Jest foi utilizado como framework de testes por possuir configuração simples e ampla utilização no ecossistema JavaScript/TypeScript.
+
+O Supertest foi utilizado para realizar requisições HTTP nas rotas da aplicação durante os testes, permitindo validar respostas, códigos de status e comportamento da API.
+
 ## Estrutura do projeto
 
 ```text
@@ -81,8 +92,12 @@ inventory-management/
 │   └── schema.prisma
 │
 ├── src/
-│   └── index.ts
+│   ├── app.ts
+│   ├── index.ts
+│   └── tests/
+│       └── products.test.ts
 │
+├── jest.config.ts
 ├── package.json
 ├── prisma.config.ts
 ├── tsconfig.json
@@ -97,6 +112,7 @@ inventory-management/
 - `ProductForm.tsx`: formulário de criação e edição de produtos.
 - `prisma/`: configuração e modelagem do banco de dados.
 - `src/`: backend da aplicação e inicialização da API.
+- `jest.config.ts`: configuração do ambiente de testes com Jest.
 
 ## Como executar o projeto
 
@@ -162,3 +178,9 @@ Frontend: http://localhost:5173
 Backend: http://localhost:3000
 ```
 
+## Executando os testes
+
+No terminal do backend, execute:
+
+```bash
+npm test
