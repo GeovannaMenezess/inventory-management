@@ -15,9 +15,9 @@ function ProductList() {
    useEffect(() => {
     fetchProducts()
   }, [location])
-
-  //Deletar Produto
+  
   async function deleteProduct(id: string) {
+    if (!confirm('Tem certeza que deseja excluir este produto?')) return
     await fetch(`http://localhost:3000/products/${id}`, {
         method: 'DELETE'
     })

@@ -11,6 +11,7 @@ Aplicação desenvolvida com TypeScript para gestão de um inventário de produt
 - Busca de produtos
 - Validação de dados
 - Testes automatizados da API
+- Confirmação antes de excluir produto
 
 ## Tecnologias utilizadas
 
@@ -56,11 +57,9 @@ A integração com TypeScript também ajuda a manter consistência entre valida�
 
 Vite foi utilizado no frontend por oferecer um ambiente de desenvolvimento rápido e configuração simples para projetos React com TypeScript.
 
-### CSS Modules
+### CSS
 
-CSS foi utilizado para manter os estilos organizados e isolados por componente, evitando conflitos de classes e facilitando a manutenção da interface.
-
-A escolha também levou em consideração familiaridade prévia com a tecnologia.
+CSS foi utilizado para estilização da interface, com um arquivo global index.css. A escolha levou em consideração simplicidade e familiaridade prévia com a tecnologia.
 
 ### Jest e Supertest
 
@@ -184,3 +183,4 @@ No terminal do backend, execute:
 
 ```bash
 npm test
+```

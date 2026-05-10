@@ -38,9 +38,18 @@ describe('DELETE /products', () => {
 
 describe('PUT /products/:id', () => {
     it('deve retornar erro 400 quando o preço é negativo', async () => {
+
+      const criado = await request(app).post('/products').send({
+      name: 'Produto para teste PUT',
+      price: 10,
+      stock_quantity: 5
+    })
+
+    const idValido = criado.body.id
+
         const response = await request(app).put('/products/qualquer-id').send({
             price: -10
         })
-        expect([400, 404, 500]).toContain(response.status)
+        expect(response.status).toBe(400)
     })
 })
